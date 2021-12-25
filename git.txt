@@ -1,0 +1,75 @@
+
+참조자료 : https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
+
+[git 사용법]
+ㅇ git 설치
+ㅇ git bash 실행
+  $ git config --global user.name "taeksoo"
+  $ git config --global user.email "skyisnomad@gmail.com"
+ 
+  $ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=taeksoo
+user.email=skyisnomad@gmail.com
+
+
+소스코드 올리기
+ㅇ vs code 실행
+ㅇ new terminal  클릭
+> git init   # git 초기화 - 맨처음 프로젝트 수행시
+Initialized empty Git repository in C:/7.프로그램/코딩애플/자바스크립트/.git/
+> git add .  # .은 전부다 라는 뜻으로 add를 통해 올리겠다
+> git add index.html  # 특정화일만 올리기
+> git status
+No commits yet
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+ㅇ add후의 결과
+No commits yet
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+>git commit -m "first Commit"
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+>git remote add origin https://github.com/rfood/flutter_1225.git  # github에서 처음 생성된 패스 / pc와 github 저장소가 연결시킨다
+> git remote -v  # 연결 확인
+origin  https://github.com/rfood/flutter_1225.git (fetch)
+origin  https://github.com/rfood/flutter_1225.git (push) 
+> git push origin master  #처음 접속시 브라우저를 통한 인증 필요 / skyisnomad@  인지 taeksoo6432@ 를 잘 파악 할 것
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 214 bytes | 107.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/rfood/flutter_1225.git
+ * [new branch]      master -> master
+
+ㅇ 위 성공이후 github 를 리프레시 하면 화면이 바뀜  -> 화일이 올라간 것 확인됨
+
+ㅇ 소스 수정하고 다시 올리기
+>git add .
+>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+> git commit -m "add src"
+> git push origin master
+
